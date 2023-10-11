@@ -1,7 +1,10 @@
+//Imports
 const express = require("express");
 const app = express();
 const bodyparser = require("body-parser");
 const connection = require("./database/database");
+const CategoriesController = require("./categories/CategoriesController");
+const ArticlesControoller = require("./articles/ArticlesController");
 
 //view engine
 app.set('view engine','ejs');
@@ -17,8 +20,12 @@ connection
         console.log("Conexão feita com sucesso!");
     }).catch((error)=>{
         console.log(error);
+
     })
-//rotas
+//routes
+app.use("/",CategoriesController);
+app.use("/",ArticlesControoller);
+
 app.get("/", (req,res)=> {
     res.render("index");
 
