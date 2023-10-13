@@ -8,24 +8,22 @@ const Article = connection.define('articles',{
     title:{
         type: Sequelize.STRING,
         allowNull: false
-    },slug: {
+    },
+    slug: {
         type: Sequelize.STRING,
         allowNull: false
-    },body:{
+    },
+    body:{
         type: Sequelize.TEXT,
         allowNull: false
     }
 
-});
+})
 
-Category.hasMany(Article,{});
-Article.belongsTo(Category,{});
-
-// uma categoria tem muitos artigo
-// um artigo pertence a uma categoria
-// relacionando as tabeles categoria e artigos
+Category.HasMany(Article);
+Article.BelongsTo(Category);
 
 
 Article.sync({force: true});
 
-module.exports = "Article";
+module.exports = Article;
