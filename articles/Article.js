@@ -20,10 +20,10 @@ const Article = connection.define('articles',{
 
 })
 
-Category.HasMany(Article);
-Article.BelongsTo(Category);
+//Category.HasMany(Article);
+//Article.BelongsTo(Category);
 
 
-Article.sync({force: true});
+//Article.sync({force: true});
 
 module.exports = Article;
