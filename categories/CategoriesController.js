@@ -4,12 +4,8 @@ const router = express.Router();
 
 
 //routes
-router.get("/categories",(req,res)=>{
-    res.send("Rota de categorias!")
-});
-
 router.get("/admin/categories/new",(req,res)=>{
-    res.send("Rota para criar um nova categoria")
+    res.render("admin/categories/new")   
  
 });
 
