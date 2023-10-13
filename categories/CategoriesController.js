@@ -1,8 +1,9 @@
+////importe modules
 const express = require("express");
 const router = express.Router();
 
 
-
+//routes
 router.get("/categories",(req,res)=>{
     res.send("Rota de categorias!")
 });
