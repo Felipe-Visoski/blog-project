@@ -4,14 +4,17 @@
 <div class="container">
     <hr>
     <div class="card">
-    <h2>Cadastro de categorias</h2>
-    <hr>
-    <form>
-        <input class="form-control"  type="text" name="title" placeholder="Defina o titulo da Categoria">
-        <br>
-        <button class="btn btn-success">Cadastrar</button>    
-
-    </form>
+        <div class="card-header">
+            <h2>Cadastro de categorias</h2>
+        </div>
+            <hr>
+        <div class="card-body">
+            <form method="post" action="/categories/save">
+                <input class="form-control"  type="text" name="title" placeholder="Defina o titulo da Categoria">
+                <br>
+                <button class="btn btn-success">Cadastrar</button>    
+            </form>
+        </div>
     </div>
 
 </div>
