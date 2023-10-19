@@ -13,10 +13,14 @@
             </tr>
         </thead>
         <tbody>
-            <th>1</th>
-            <th>Dev web</th>
-            <th>Dev-web</th>
-            <th></th>            
+            <% categories.forEach(category => { %>
+                <tr>
+                    <th><%= category.Id %></th>
+                    <th><%= category.Titulo %></th>
+                    <th><%= category.Slug %></th>
+                    <th></th>
+                </tr>
+            <% }) %>
         </tbody>
     </table>
     <hr>
