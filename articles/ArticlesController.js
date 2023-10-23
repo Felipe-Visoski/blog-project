@@ -9,7 +9,7 @@ router.get("/articles",(req,res)=>{
 });
 
 router.get("/admin/articles/new",(req,res)=>{
-    res.send("Rota para criar um nova artigo")
+    res.render("admin/articles/new")
  
 });
 
