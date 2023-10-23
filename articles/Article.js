@@ -20,8 +20,8 @@ const Article = connection.define('articles',{
 
 })
 
-//Category.HasMany(Article);
-//Article.BelongsTo(Category);
+Category.hasMany(Article);
+Article.belongsTo(Category);
 
 
 //Article.sync({force: true});

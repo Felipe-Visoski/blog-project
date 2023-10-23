@@ -1,0 +1,51 @@
+<%- include ('../../partials/header.ejs'); %>
+<%- include ('../../partials/navbar.ejs'); %>
+<div class="container">
+    <hr>
+    <h2>Artigos</h2>
+        <a class="btn btn-success" href="/admin/articles/new">Criar nova artigo</a>
+        <br>
+        <hr>
+</div>
+<div class="container" style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+    
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Titulo</th>
+                <th>Slug</th>
+                <th>Categoria</th>
+                <th>Ações</th>              
+            </tr>
+        </thead>
+        <tbody>
+            
+            <% articles.forEach(articles=>{ %>
+                <tr>
+                    <td><%= articles.id %></td>
+                    <td><%= articles.title %></td>
+                    <td><%= articles.slug %></td>  
+                    <td><%= articles.category.title %></td>
+                    <td>Ações</td>
+                </tr>  
+            <% }) %>
+               
+        </tbody>
+    </table>
+    <hr>
+</div>
+<script>
+    function confirmarDelecao(event, form){
+        event.preventDefault();
+        console.log("formulario não enviado")
+        var decision = confirm("Você quer deletar este artigo?");
+        if(decision){
+            form.submit();
+        }
+    }
+</script>
+
+
+
+<%- include ('../../partials/footer.ejs'); %>
