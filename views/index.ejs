@@ -1,7 +1,29 @@
 <%- include ('partials/header.ejs'); %>
+<%- include ('partials/homenavbar.ejs'); %>
 
 <body>
-    <h1>Olá mundo!</h1>
+    <div class="jumbotron">
+        <h1 class="display-4">Bem vindo</h1>
+        <p class="lead">Código e Além: Explorando o Universo da Programação</p>
+        <hr class="my-4">
+        <p>Nosso blog de tecnologia é o seu destino definitivo para tudo relacionado à programação e desenvolvimento de software. Aqui, mergulhamos profundamente no mundo da codificação, oferecendo recursos, tutoriais, dicas e análises que ajudam programadores de todos os níveis a aprimorar suas habilidades e se manterem atualizados com as tendências mais recentes. Desde linguagens de programação populares até frameworks inovadores, arquiteturas de software eficientes e boas práticas de desenvolvimento, nosso objetivo é capacitá-lo a criar soluções de software incríveis. Além disso, exploramos temas emergentes, como inteligência artificial, blockchain, Internet das Coisas (IoT) e muito mais. Se você é um entusiasta da programação, um estudante curioso ou um desenvolvedor experiente em busca de inspiração, junte-se a nós nesta emocionante jornada de programação e descubra o que está além do código!.</p>
+        <p class="lead">
+          <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+        </p>
+      </div>
+    <div class="container">
+        <% articles.forEach(articles=>{ %>
+            <div class="card-header">
+                <%= articles.title %>
+            </div>
+            <div class="card-body">
+                <a href="" class="btn btn-success">Ler artigo</a>
+            </div>
+            <br>
+        <% }) %>
+
+    </div>
+
 </body>
 
 <%- include ('partials/footer.ejs'); %>
