@@ -14,10 +14,10 @@
     <div class="container">
         <% articles.forEach(articles=>{ %>
             <div class="card-header">
-                <%= articles.title %>
+                <h2><%= articles.title %></h2>
             </div>
             <div class="card-body">
-                <a href="" class="btn btn-success">Ler artigo</a>
+                <a href="/<%= articles.slug %>" class="btn btn-success">Ler artigo</a>
             </div>
             <br>
         <% }) %>
