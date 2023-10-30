@@ -64,7 +64,7 @@ router.get("/admin/articles/edit/:id",(req,res)=>{
         if(articles != undefined){
 
             Category.findAll().then(categories =>{
-                res.render("admin/articles/edit", {categories: categories});
+                res.render("admin/articles/edit", {categories: categories, articles: articles});
 
             });
             
