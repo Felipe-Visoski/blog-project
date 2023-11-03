@@ -110,7 +110,23 @@ router.get("/articles/page/:num",(req, res) => {
        limit: 4,
        offset: offset
     }).then(articles => {
-        res.json(articles);
+        var next;
+        if(offset + 4 >= articles.count){
+            next = false;
+        }else{
+            next = true;
+        }
+
+
+        var result = {
+            next: next,
+            articles : articles
+        }
+        Category.findAll().then(categories =>{
+            res.render("admin/articles/page",{result: result, categories: categories})
+        })
+
+       
     });
 
 })
