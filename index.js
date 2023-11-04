@@ -5,6 +5,8 @@ const bodyparser = require("body-parser");
 const connection = require("./database/database");
 const CategoriesController = require("./categories/CategoriesController");
 const ArticlesControoller = require("./articles/ArticlesController");
+const UsersController = require("./user/UsersController");
+const User = require("./user/User");
 const Article = require("./articles/Article");
 const Category = require("./categories/Category");
 //view engine
@@ -26,6 +28,7 @@ connection
 //routes
 app.use("/",CategoriesController);
 app.use("/",ArticlesControoller);
+app.use("/",UsersController);
 
 app.get("/", (req,res)=> {
     Article.findAll({
