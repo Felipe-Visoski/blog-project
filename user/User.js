@@ -2,7 +2,7 @@
 const Sequelize = require("sequelize");
 const connection = require("../database/database");
 
-//criando a tabela categories
+//criando a tabela user
 const User = connection.define('users',{
     email:{
         type: Sequelize.STRING,
