@@ -12,15 +12,25 @@
     <table class="table table-bordered">
         <thead>
             <tr>
+                <th>Id</th>
                 <th>Email</th>
-                <th>Senha</th>            
+                <th>Senha</th> 
+                <th>Ações</th>           
             </tr>
         </thead>
         <tbody>
             <% users.forEach(users => { %>
                 <tr>
+                    <th><%= users.id %></th>
                     <th><%= users.email %></th>
                     <th><%= users.password %></th>
+                    <th>
+
+                        <form method="post" action="/users/delete" style="display: inline;" onsubmit="confirmarDelecao(event, this)">
+                            <input type="hidden" name="id" value="<%= users.id %>">
+                            <button class="btn btn-danger">Deletar</button>
+                        </form>
+                    </th>
                     
                 </tr>
             <% }) %>
@@ -29,6 +39,15 @@
     <hr>
 </div>
 
-
+<script>
+    function confirmarDelecao(event, form){
+        event.preventDefault();
+        console.log("formulario não enviado")
+        var decision = confirm("Você quer deletar este usuário?");
+        if(decision){
+            form.submit();
+        }
+    }
+</script>
 
 <%- include ('../../partials/footer.ejs'); %>
