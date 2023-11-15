@@ -17,6 +17,10 @@ app.use(express.static('public'));
 //body-parser
 app.use(bodyparser.urlencoded({extended: false}));
 app.use(bodyparser.json());
+//session
+app.use(session({
+    secret: "gestrudes", cookie: { maxAge: 3000000000 }
+}))
 //Database
 connection
     .authenticate()
@@ -30,6 +34,8 @@ connection
 app.use("/",CategoriesController);
 app.use("/",ArticlesControoller);
 app.use("/",UsersController);
+
+
 
 app.get("/", (req,res)=> {
     Article.findAll({
