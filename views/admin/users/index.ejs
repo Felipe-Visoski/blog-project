@@ -2,7 +2,7 @@
 <%- include ('../../partials/navbar.ejs'); %>
 <div class="container">
     <hr>
-    <h2>Categorias</h2>
+    <h2>Usuários</h2>
         <a class="btn btn-success" href="/admin/users/create">Criar novo usuário</a>
         <br>
         <hr>
@@ -13,8 +13,7 @@
         <thead>
             <tr>
                 <th>Id</th>
-                <th>Email</th>
-                <th>Senha</th> 
+                <th>Email</th> 
                 <th>Ações</th>           
             </tr>
         </thead>
@@ -23,7 +22,6 @@
                 <tr>
                     <th><%= users.id %></th>
                     <th><%= users.email %></th>
-                    <th><%= users.password %></th>
                     <th>
 
                         <form method="post" action="/users/delete" style="display: inline;" onsubmit="confirmarDelecao(event, this)">

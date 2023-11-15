@@ -2,6 +2,7 @@
 const express = require("express");
 const app = express();
 const bodyparser = require("body-parser");
+const session = require("express-session");
 const connection = require("./database/database");
 const CategoriesController = require("./categories/CategoriesController");
 const ArticlesControoller = require("./articles/ArticlesController");
