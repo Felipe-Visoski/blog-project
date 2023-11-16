@@ -2,8 +2,8 @@ const express = require("express");
 const router = express.Router();
 const User = require("./User");
 const bcrypt = require("bcryptjs");
-
-router.get("/admin/users",(req,res)=>{
+const adminauth = require("../middllewares/adminauth");
+router.get("/admin/users",adminauth,(req,res)=>{
     User.findAll().then(users =>{
         res.render("admin/users/index",{users: users});
     });
@@ -11,12 +11,12 @@ router.get("/admin/users",(req,res)=>{
    
 });
 
-router.get("/admin/users/create", (req,res)=>{
+router.get("/admin/users/create",adminauth,(req,res)=>{
     res.render("admin/users/create");
 
 });
 
-router.post("/users/create",(req, res) =>{
+router.post("/users/create",adminauth,(req, res) =>{
     var email = req.body.email;
     var password = req.body.password;
     User.findOne({where:{email: email}}).then(user =>{
@@ -39,7 +39,7 @@ router.post("/users/create",(req, res) =>{
     });
 });
 
-router.post("/users/delete",(req, res)=>{
+router.post("/users/delete",adminauth,(req, res)=>{
     var id = req.body.id;
     if(id != undefined){
         if(!isNaN(id)){
@@ -75,7 +75,7 @@ router.post("/authenticate",(req, res)=>{
                     id: user.id,
                     email: user.email
                 }
-                res.json(req.session.user);
+                res.redirect("/admin/articles");
              }else{
                 res.redirect("/login");    
              }
@@ -85,5 +85,11 @@ router.post("/authenticate",(req, res)=>{
     })
 
 })
+
+
+router.get("/logout",(req,res)=>{
+    req.session.user = undefined;
+    res.redirect("/");
+});
 
 module.exports = router;
